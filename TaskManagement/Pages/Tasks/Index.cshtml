@@ -1,0 +1,44 @@
+﻿@page
+@model TaskManagement.Pages.Tasks.IndexModel
+@{
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between mb-3">
+        <h3>My Tasks</h3>
+        <a class="btn btn-primary" asp-page="Create">+ Create Task</a>
+    </div>
+
+    <form method="get" class="mb-3">
+        <select name="status" class="form-select w-25 d-inline">
+        <option value="">All</option>
+        <option value="false">Pending</option>
+        <option value="true">Completed</option>
+    </select>
+        <button type="submit" class="btn btn-secondary ms-2">Filter</button>
+</form>
+
+    <table class ="table table-bordered table-striped">
+        <thead class="table-dark">
+    <tr>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Updated</th>
+        <th>Actions</th>
+    </tr>
+        </thead>
+        <tbody>
+    @foreach (var task in Model.Tasks)
+    {
+        <tr>
+            <td>@task.Title</td>
+            <td>@(task.IsCompleted ? "Completed" : "Pending")</td>
+            <td>@task.UpdatedAt</td>
+            <td>
+                <a asp-page="Edit" asp-route-id="@task.TaskId">Edit</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+</div>

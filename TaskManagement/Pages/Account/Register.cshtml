@@ -1,0 +1,41 @@
+﻿@page
+@model TaskManagement.Pages.Account.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-success text-white text-center">
+                    <h4>Create Account</h4>
+                </div>
+                <div class="card-body">
+                   <form method="post">
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input asp-for="FullName" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input asp-for="Email" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input asp-for="Password" type="password" class="form-control" />
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">
+                            Register
+                        </button>
+                   </form>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-page="/Account/Login">Already have an account?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

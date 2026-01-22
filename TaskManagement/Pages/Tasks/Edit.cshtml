@@ -1,0 +1,47 @@
+﻿@page "{id:int}"
+@model TaskManagement.Pages.Tasks.EditModel
+@{
+    ViewData["Title"] = "Edit Task";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-warning">
+                    <h5>Edit Task</h5>
+                </div>
+
+                <div class="card-body">
+
+                   <form method="post">
+                        <input type="hidden" asp-for="Task.TaskId" />
+
+                        <div class="mb-3">
+                            <label class="form-label">Title</label>
+                            <input asp-for="Task.Title" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea asp-for="Task.Description" class="form-control"></textarea>
+                        </div>
+
+                        <div class="form-check mb-3">
+                            <input asp-for="Task.IsCompleted" class="form-check-input" />
+                            <label class="form-check-label">Completed</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-warning">
+                            Update
+                        </button>
+                        <a asp-page="Index" class="btn btn-secondary">
+                            Cancel
+                        </a>
+                   </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
