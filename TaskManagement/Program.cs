@@ -61,6 +61,11 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+app.MapGet("/", context =>
+{
+    context.Response.Redirect("/Account/Login");
+    return Task.CompletedTask;
+});
 app.MapRazorPages();
 
 app.Run();
